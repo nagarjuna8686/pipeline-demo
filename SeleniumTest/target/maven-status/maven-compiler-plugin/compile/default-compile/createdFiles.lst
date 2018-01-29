@@ -1,0 +1,4 @@
+com/rg/test/pageobjects/SearchComponent.class
+com/rg/test/pageobjects/DefinitionPage.class
+com/rg/test/pageobjects/WikipediaPage.class
+com/rg/test/GuiceModule.class
