@@ -20,6 +20,7 @@ node {
                 }
             }
         } finally {
+            sh 'docker stop zalenium'
             junit testResults: 'SeleniumTest/target/*.xml', allowEmptyResults: true
             archiveArtifacts 'SeleniumTest/target/**'
         }
