@@ -7,10 +7,13 @@ node {
     
     stage('Setup Selenium Grid') {
         sh 'docker pull elgalu/selenium && docker pull dosel/zalenium'
-        sh 'docker run --rm -d --name zalenium -p 4444:4444 \
+        sh 'docker run --rm -ti --name zalenium -p 4444:4444 \
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v /tmp/videos:/home/seluser/videos \
             --privileged dosel/zalenium start'
+        
+        sh 'sleep 10'
+        //sh 'curl -sSL http://localhost:4444/wd/hub/status | jq .value.ready | grep true'
     }
     stage('Run tests') {
         try {
